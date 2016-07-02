@@ -33,3 +33,32 @@ body {
     margin-bottom: 30px;
   }
 }
+
+.dropdown {
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+}
+
+button[aria-expanded=true] .glyphicon-chevron-left {
+   display: none;
+}
+button[aria-expanded=false] .glyphicon-chevron-down {
+   display: none;
+}
+
+.overview {
+  padding-right: 8px;
+}
+
+button[aria-expanded=true] .overview {
+   display: none;
+}
+button[aria-expanded=false] .overview {
+   display: unset;
+}
+
+.table caption {
+  padding-left: 8px;
+}
