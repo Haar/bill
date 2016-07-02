@@ -1,24 +1,14 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[View Demo](https://gentle-sea-24722.herokuapp.com/)
 
-Things you may want to cover:
+Usually I'd squash/tidy my commits prior to a PR but thought it more insightful to leave it as is.
 
-* Ruby version
+Work completed sporadically between other commitments (total time ~3-4 hours), have at it! :)
 
-* System dependencies
+To run the test suite, simply clone the repo and `bundle && rake`
 
-* Configuration
+Improvement ideas:
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Inline pagination of phone charges (too many rows/lose context of final charge vs table headings)
+* Complete PDF rendering
