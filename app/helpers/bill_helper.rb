@@ -10,4 +10,8 @@ module BillHelper
   def date_string(string)
     Date.parse(string).strftime('%d %b')
   end
+
+  def rental_charge_total
+    resource[:sky_store][:rentals].sum { |rental| rental[:cost] }
+  end
 end

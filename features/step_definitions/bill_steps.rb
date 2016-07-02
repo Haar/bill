@@ -32,7 +32,7 @@ end
 
 Then(/^I should be able to drill down my TV charges$/) do
   within '#tv_charges .pull-right .overview' do
-    expect(page).to have_content '£24.97'
+    expect(page).to have_content '£4.99'
   end
   expect(page).to have_selector('table.tv_charges', visible: false)
   click_button('Sky TV Store')
@@ -42,7 +42,7 @@ Then(/^I should be able to drill down my TV charges$/) do
   expect(page).to have_selector('table.tv_charges', visible: true)
   within('table.tv_charges', visible: true) do
     expect(page).to have_content '50 Shades of Grey	Rental	£4.99'
-    expect(page).to have_content '£24.97'
+    expect(page).to have_content '£4.99'
   end
 end
 

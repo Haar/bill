@@ -3,7 +3,7 @@
     Sky TV Store
     %small.overview Rentals &amp; Purchases
     .pull-right
-      %span.overview.text-muted= currency(resource[:sky_store][:total])
+      %span.overview.text-muted= currency(rental_charge_total)
       %a.glyphicon.glyphicon-chevron-down
       %a.glyphicon.glyphicon-chevron-left
 
@@ -19,15 +19,15 @@
         %td.col-sm-5= rental[:title]
         %td.col-sm-4 Rental
         %td.col-sm-3= currency(rental[:cost])
-    - resource[:sky_store][:buy_and_keep].each do |rental|
+    - resource[:sky_store][:buy_and_keep].each do |purchase|
       %tr
-        %td.col-sm-5= rental[:title]
+        %td.col-sm-5= purchase[:title]
         %td.col-sm-4 Purchase
-        %td.col-sm-3= currency(rental[:cost])
+        %td.col-sm-3.text-muted £0.00 (#{currency(purchase[:cost])} paid)
     %tr
       %td
       %td
       %td
-        %b #{currency(resource[:sky_store][:total])}
+        %b= currency(rental_charge_total)
 
 
