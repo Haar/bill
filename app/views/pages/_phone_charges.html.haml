@@ -1,0 +1,28 @@
+%button.dropdown#phone_charges{'aria-expanded' => 'false', data: {toggle: 'collapse', target: '#phone_expanded'} }
+  %h4
+    Phone usage
+    %small.overview Calls charged outside included service
+    .pull-right
+      %span.overview.text-muted= currency(resource[:call_charges][:total])
+      %a.glyphicon.glyphicon-chevron-down
+      %a.glyphicon.glyphicon-chevron-left
+
+#phone_expanded.collapse
+  %table.table.phone_charges
+    %caption Calls charged outside included service
+    %tr
+      %th.col-sm-4 Recipient
+      %th.col-sm-5 Duration
+      %th.col-sm-3 Charge
+    - resource[:call_charges][:calls].each do |call_details|
+      %tr
+        %td.col-sm-4= call_details[:called]
+        %td.col-sm-5= call_details[:duration]
+        %td.col-sm-3= currency(call_details[:cost])
+    %tr
+      %td
+      %td
+      %td
+        %b #{currency(resource[:call_charges][:total])}
+
+

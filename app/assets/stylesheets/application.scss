@@ -42,10 +42,10 @@ body {
 }
 
 button[aria-expanded=true] .glyphicon-chevron-left {
-   display: none;
+  display: none;
 }
 button[aria-expanded=false] .glyphicon-chevron-down {
-   display: none;
+  display: none;
 }
 
 .overview {
@@ -53,12 +53,17 @@ button[aria-expanded=false] .glyphicon-chevron-down {
 }
 
 button[aria-expanded=true] .overview {
-   display: none;
+  display: none;
 }
 button[aria-expanded=false] .overview {
-   display: unset;
+  display: unset;
 }
 
 .table caption {
   padding-left: 8px;
+}
+
+#phone_expanded {
+  max-height: 300px;
+  overflow: auto;
 }

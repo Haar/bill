@@ -16,7 +16,7 @@ end
 
 Then(/^I should be able to drill down my services$/) do
   # Assert initial state
-  within '.overview' do
+  within '#subscription .overview' do
     expect(page).to have_content '£71.40' # Displayed within dropdown button
   end
   expect(page).to have_selector('table.subscriptions', visible: false)
@@ -35,6 +35,14 @@ Then(/^I should be able to drill down my TV charges$/) do
 end
 
 Then(/^I should be able to drill down my Phone charges$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  within '#phone_charges .pull-right .overview' do
+    expect(page).to have_content '£4.26'
+  end
+  expect(page).to have_selector('table.phone_charges', visible: false)
+  click_button('Phone usage')
+
+  expect(page).to have_selector('#phone_charges .pull-right .overview', visible: false)
+  # Show phone charge breakdown
+  expect(page).to have_selector('table.phone_charges', visible: true)
 end
 
