@@ -3,4 +3,5 @@ Rails.application.routes.draw do
 
   root to: 'pages#bill'
 
+  get '/bill_pdf', to: 'pages#bill_pdf', as: 'bill_pdf'
 end

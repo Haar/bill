@@ -62,3 +62,9 @@ Then(/^I should be able to drill down my Phone charges$/) do
   end
 end
 
+Then(/^I should be able to download a PDF of my bill$/) do
+  click_link 'Download PDF'
+  expect(page.status_code).to eql 200
+  expect(page.response_headers['Content-Type'].downcase).to include('pdf')
+  expect(page.response_headers['Content-Disposition']).to include %{filename="my_bill.pdf"}
+end

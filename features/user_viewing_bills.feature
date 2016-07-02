@@ -9,3 +9,4 @@ Feature: User - Billing
     And I should be able to drill down my services
     And I should be able to drill down my Phone charges
     And I should be able to drill down my TV charges
+    And I should be able to download a PDF of my bill
