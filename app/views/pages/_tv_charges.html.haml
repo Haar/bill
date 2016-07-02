@@ -1,0 +1,33 @@
+%button.dropdown#tv_charges{'aria-expanded' => 'false', data: {toggle: 'collapse', target: '#tv_expanded'} }
+  %h4
+    Sky TV Store
+    %small.overview Rentals &amp; Purchases
+    .pull-right
+      %span.overview.text-muted= currency(resource[:sky_store][:total])
+      %a.glyphicon.glyphicon-chevron-down
+      %a.glyphicon.glyphicon-chevron-left
+
+#tv_expanded.collapse
+  %table.table.tv_charges
+    %tr
+      %th.col-sm-5 Title
+      %th.col-sm-4
+      %th.col-sm-3 Charge
+    %caption Rentals &amp; Purchases
+    - resource[:sky_store][:rentals].each do |rental|
+      %tr
+        %td.col-sm-5= rental[:title]
+        %td.col-sm-4 Rental
+        %td.col-sm-3= currency(rental[:cost])
+    - resource[:sky_store][:buy_and_keep].each do |rental|
+      %tr
+        %td.col-sm-5= rental[:title]
+        %td.col-sm-4 Purchase
+        %td.col-sm-3= currency(rental[:cost])
+    %tr
+      %td
+      %td
+      %td
+        %b #{currency(resource[:sky_store][:total])}
+
+

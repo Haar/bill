@@ -31,7 +31,19 @@ Then(/^I should be able to drill down my services$/) do
 end
 
 Then(/^I should be able to drill down my TV charges$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  within '#tv_charges .pull-right .overview' do
+    expect(page).to have_content '£24.97'
+  end
+  expect(page).to have_selector('table.tv_charges', visible: false)
+  click_button('Sky TV Store')
+
+  expect(page).to have_selector('#tv_charges .pull-right .overview', visible: false)
+  # Show TV charge breakdown
+  expect(page).to have_selector('table.tv_charges', visible: true)
+  within('table.tv_charges', visible: true) do
+    expect(page).to have_content '50 Shades of Grey	Rental	£4.99'
+    expect(page).to have_content '£24.97'
+  end
 end
 
 Then(/^I should be able to drill down my Phone charges$/) do
@@ -44,5 +56,9 @@ Then(/^I should be able to drill down my Phone charges$/) do
   expect(page).to have_selector('#phone_charges .pull-right .overview', visible: false)
   # Show phone charge breakdown
   expect(page).to have_selector('table.phone_charges', visible: true)
+  within('table.phone_charges', visible: true) do
+    expect(page).to have_content '07716393769    00:23:03    £2.13'
+    expect(page).to have_content '£4.26'
+  end
 end
 
