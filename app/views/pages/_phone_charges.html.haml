@@ -1,13 +1,11 @@
-%button.dropdown#phone_charges{'aria-expanded' => 'false', data: {toggle: 'collapse', target: '#phone_expanded'} }
-  %h4
-    Phone usage
-    %small.overview Calls charged outside included service
-    .pull-right
-      %span.overview.text-muted= currency(resource[:call_charges][:total])
-      %a.glyphicon.glyphicon-chevron-down
-      %a.glyphicon.glyphicon-chevron-left
+- content_for(:button_title, flush: true) do
+  Phone usage
+  %small.overview Calls charged outside included service
 
-#phone_expanded.collapse
+- content_for(:dropdown_amount, flush: true) do
+  = currency(resource[:call_charges][:total])
+
+= render 'bill_section', id: 'phone_charges', target: 'phone_expanded' do
   %table.table.phone_charges
     %caption Calls charged outside included service
     %tr

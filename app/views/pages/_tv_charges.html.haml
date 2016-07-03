@@ -1,13 +1,11 @@
-%button.dropdown#tv_charges{'aria-expanded' => 'false', data: {toggle: 'collapse', target: '#tv_expanded'} }
-  %h4
-    Sky TV Store
-    %small.overview Rentals &amp; Purchases
-    .pull-right
-      %span.overview.text-muted= currency(rental_charge_total)
-      %a.glyphicon.glyphicon-chevron-down
-      %a.glyphicon.glyphicon-chevron-left
+- content_for(:button_title, flush: true) do
+  Sky TV Store
+  %small.overview Rentals &amp; Purchases
 
-#tv_expanded.collapse
+- content_for(:dropdown_amount, flush: true) do
+  = currency(rental_charge_total)
+
+= render 'bill_section', id: 'tv_charges', target: 'tv_expanded' do
   %table.table.tv_charges
     %tr
       %th.col-sm-5 Title
@@ -29,5 +27,3 @@
       %td
       %td
         %b= currency(rental_charge_total)
-
-

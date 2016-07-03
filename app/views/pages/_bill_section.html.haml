@@ -1,0 +1,10 @@
+%button.dropdown{id: id, 'aria-expanded' => 'false', data: {toggle: 'collapse', target: "##{target}"} }
+  %h4
+    = content_for(:button_title)
+    .pull-right
+      %span.overview.text-muted= content_for(:dropdown_amount)
+      %a.glyphicon.glyphicon-chevron-down
+      %a.glyphicon.glyphicon-chevron-left
+
+.collapse{ id: target}
+  = yield

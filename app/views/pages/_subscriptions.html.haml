@@ -1,13 +1,11 @@
-%button.dropdown#subscription{'aria-expanded' => 'false', data: {toggle: 'collapse', target: '#subscriptions_expanded'} }
-  %h4
-    Subscriptions
-    %small #{bill_period(:from)} - #{bill_period(:to)}
-    .pull-right
-      %span.overview.text-muted= currency(resource[:package][:total])
-      %a.glyphicon.glyphicon-chevron-down
-      %a.glyphicon.glyphicon-chevron-left
+- content_for(:button_title, flush: true) do
+  Subscriptions
+  %small #{bill_period(:from)} - #{bill_period(:to)}
 
-#subscriptions_expanded.collapse
+- content_for(:dropdown_amount, flush: true) do
+  = currency(resource[:package][:total])
+
+= render 'bill_section', id: 'subscription', target: 'subscriptions_expanded' do
   %table.table.subscriptions
     %caption This bill covers next months basic subscriptions
     - resource[:package][:subscriptions].each do |subscription|
