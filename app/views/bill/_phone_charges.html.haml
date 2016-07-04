@@ -3,7 +3,7 @@
   %small.overview Calls charged outside included service
 
 - content_for(:dropdown_amount, flush: true) do
-  = currency(resource[:call_charges][:total])
+  = currency(bill[:call_charges][:total])
 
 = render 'bill_section', id: 'phone_charges', target: 'phone_expanded' do
   %table.table.phone_charges
@@ -12,7 +12,7 @@
       %th.col-sm-4 Recipient
       %th.col-sm-5 Duration
       %th.col-sm-3 Charge
-    - resource[:call_charges][:calls].each do |call_details|
+    - bill[:call_charges][:calls].each do |call_details|
       %tr
         %td.col-sm-4= call_details[:called]
         %td.col-sm-5= call_details[:duration]
@@ -21,6 +21,6 @@
       %td
       %td
       %td
-        %b #{currency(resource[:call_charges][:total])}
+        %b #{currency(bill[:call_charges][:total])}
 
 

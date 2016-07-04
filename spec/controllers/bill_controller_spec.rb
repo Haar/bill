@@ -1,11 +1,11 @@
 require 'rails_helper'
 
-RSpec.describe PagesController, type: :controller do
+RSpec.describe BillController, type: :controller do
 
   describe 'GET #bill' do
     render_views
 
-    let(:action) { get :bill }
+    let(:action) { get :show }
 
     it 'returns a 200 success' do
       action

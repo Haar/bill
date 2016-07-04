@@ -1,6 +1,6 @@
 module BillHelper
   def bill_period(place=:from)
-    date_string(resource[:statement][:period][place])
+    date_string(bill[:statement][:period][place])
   end
 
   def currency(number)
@@ -12,6 +12,6 @@ module BillHelper
   end
 
   def rental_charge_total
-    resource[:sky_store][:rentals].sum { |rental| rental[:cost] }
+    bill[:sky_store][:rentals].sum { |rental| rental[:cost] }
   end
 end

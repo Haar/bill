@@ -12,12 +12,12 @@
       %th.col-sm-4
       %th.col-sm-3 Charge
     %caption Rentals &amp; Purchases
-    - resource[:sky_store][:rentals].each do |rental|
+    - bill[:sky_store][:rentals].each do |rental|
       %tr
         %td.col-sm-5= rental[:title]
         %td.col-sm-4 Rental
         %td.col-sm-3= currency(rental[:cost])
-    - resource[:sky_store][:buy_and_keep].each do |purchase|
+    - bill[:sky_store][:buy_and_keep].each do |purchase|
       %tr
         %td.col-sm-5= purchase[:title]
         %td.col-sm-4 Purchase

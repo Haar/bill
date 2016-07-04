@@ -3,12 +3,12 @@
   %small #{bill_period(:from)} - #{bill_period(:to)}
 
 - content_for(:dropdown_amount, flush: true) do
-  = currency(resource[:package][:total])
+  = currency(bill[:package][:total])
 
 = render 'bill_section', id: 'subscription', target: 'subscriptions_expanded' do
   %table.table.subscriptions
     %caption This bill covers next months basic subscriptions
-    - resource[:package][:subscriptions].each do |subscription|
+    - bill[:package][:subscriptions].each do |subscription|
       %tr
         %td.col-sm-3= subscription[:name]
         %td.col-sm-9
@@ -16,4 +16,4 @@
     %tr
       %td
         %td
-          %b.pull-right Subtotal #{currency(resource[:package][:total])}
+          %b.pull-right Subtotal #{currency(bill[:package][:total])}
